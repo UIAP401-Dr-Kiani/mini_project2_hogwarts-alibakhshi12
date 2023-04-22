@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Hagwartz
 {
-    public class authorizedPersons
+    public class authorizedPersons:person
     {
         private long roomNumber;
 

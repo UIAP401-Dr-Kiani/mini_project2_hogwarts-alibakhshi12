@@ -1,6 +1,6 @@
 ﻿namespace Hagwartz
 {
-    public class admin
+    public class admin:authorizedPersons
     {
         
     }

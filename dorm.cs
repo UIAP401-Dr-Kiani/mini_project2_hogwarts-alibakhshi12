@@ -42,6 +42,18 @@
             set => gender = value;
         }
 
+        private static int code;
+
+        public static int Code
+        {
+            get => code;
+            set => code = value;
+        }
         
+        public dorm()
+        {
+            Code = 101;
+            
+        }
     }
 }

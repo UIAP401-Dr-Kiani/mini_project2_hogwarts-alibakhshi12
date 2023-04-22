@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Hagwartz
 {
-    public class student
+    public class student:authorizedPersons
     {
         private long passedUnits;
 

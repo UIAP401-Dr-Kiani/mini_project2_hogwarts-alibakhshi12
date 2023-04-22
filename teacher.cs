@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Hagwartz
 {
-    public class teacher
+    public class teacher:authorizedPersons
     {
         private bool simultaneousTeaching;
 
