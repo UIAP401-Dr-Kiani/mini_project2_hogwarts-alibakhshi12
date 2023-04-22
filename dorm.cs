@@ -53,7 +53,6 @@
         public dorm()
         {
             Code = 101;
-            
         }
     }
 }
