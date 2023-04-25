@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hagwartz
 {
@@ -10,16 +12,13 @@ namespace Hagwartz
   {
     public static void Main(string[] args)
     {
-        using (StreamReader file = new StreamReader("file.tsv"))
-        {
-            string ln;
-            while ((ln =file.ReadLine())!= null)
-            {
-                string[] human = ln.Split('\t').ToArray<string>();
-            }
+      authorizedPersonsDetector();
 
-            file.Close();
-        }
+    }
+    public static authorizedPersons[] authorizedPersonsDetector()
+    {
+      dynamic jsonFile = JsonConvert.DeserializeObject<authorizedPersons[]>(File.ReadAllText("JSON_DATA.json"));
+      return jsonFile;
     }
   }
 }

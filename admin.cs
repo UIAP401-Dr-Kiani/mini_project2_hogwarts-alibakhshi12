@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Hagwartz
 {
@@ -10,6 +11,18 @@ namespace Hagwartz
         {
             get => dormsList;
             set => dormsList = value;
+        }
+
+        string login(string username, string password)
+        {
+            if (username=="AliBakhshi" && password=="1382")
+            {
+                return ("login successfully");
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

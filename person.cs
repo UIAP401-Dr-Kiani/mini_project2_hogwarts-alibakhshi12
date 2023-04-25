@@ -4,26 +4,26 @@ namespace Hagwartz
 {
     public class person
     {
-        private string firstName;
+        private string name;
 
-        public string FirstName
+        public string Name
         {
-            get => firstName;
-            set => firstName = value;
+            get => name;
+            set => name = value;
         }
-        private string lastName;
+        private string family;
 
-        public string LastName
+        public string Family
         {
-            get => lastName;
-            set => lastName = value;
+            get => family;
+            set => family = value;
         }
-        private long birthYear;
+        private string dateOfBirth;
 
-        public long BirthYear
+        public string DateOfBirth
         {
-            get => birthYear;
-            set => birthYear = value;
+            get => dateOfBirth;
+            set => dateOfBirth = value;
         }
         private Gender gender;
 
@@ -53,12 +53,12 @@ namespace Hagwartz
             get => password;
             set => password = value;
         }
-        private breedType breed;
+        private string type;
 
-        public breedType Breed
+        public string Type
         {
-            get => breed;
-            set => breed = value;
+            get => type;
+            set => type = value;
         }
     }
 }
