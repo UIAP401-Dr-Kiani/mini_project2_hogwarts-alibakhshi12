@@ -1,0 +1,10 @@
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.csproj.AssemblyReference.cache
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.csproj.SuggestedBindingRedirects.cache
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.csproj.CoreCompileInputs.cache
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\bin\Debug\Hagwartz.exe
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\bin\Debug\Hagwartz.pdb
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.csproj.CopyComplete
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.exe
+C:\Users\PooyaPardaz_\RiderProjects\Hagwartz\Hagwartz\obj\Debug\Hagwartz.pdb
