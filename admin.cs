@@ -21,7 +21,7 @@ namespace Hagwartz
             }
             else
             {
-                return null;
+                return ("Not found");
             }
         }
     }
