@@ -13,9 +13,9 @@ namespace Hagwartz
     {
 
     }
-    public authorizedPersons[] authorizedPersonsDetector()
+    public static List<authorizedPersons> authorizedPersonsDetector()
     {
-      dynamic jsonFile = JsonConvert.DeserializeObject<authorizedPersons[]>(File.ReadAllText("JSON_DATA.json"));
+      dynamic jsonFile = JsonConvert.DeserializeObject<List<authorizedPersons>>(File.ReadAllText("JSON_DATA.json"));
       return jsonFile;
     }
   }

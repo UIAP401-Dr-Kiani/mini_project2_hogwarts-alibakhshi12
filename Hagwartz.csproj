@@ -54,6 +54,7 @@
         <Compile Include="Gender.cs" />
         <Compile Include="group.cs" />
         <Compile Include="lesson.cs" />
+        <Compile Include="listOfAuthorizedPersons.cs" />
         <Compile Include="magic.cs" />
         <Compile Include="person.cs" />
         <Compile Include="pet.cs" />

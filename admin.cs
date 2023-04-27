@@ -13,12 +13,12 @@ namespace Hagwartz
             set => dormsList = value;
         }
 
-        private Program program = new Program();
+        private listOfAuthorizedPersons list = new listOfAuthorizedPersons();
 
-        public Program Program
+        public listOfAuthorizedPersons List
         {
-            get => program;
-            set => program = value;
+            get => list;
+            set => list = value;
         }
 
         string login(string username, string password)
@@ -35,24 +35,22 @@ namespace Hagwartz
 
         void sendInvitation()
         {
-            this.Program.authorizedPersonsDetector();
-            for (int i = 0; i < this.Program.authorizedPersonsDetector().Length; i++)
+            for (int i = 0; i < this.List.AuthorizedPersonsList.Count; i++)
             {
-                if (this.Program.authorizedPersonsDetector()[i].Role == role.student)
+                if (this.List.AuthorizedPersonsList[i].Role == role.student)
                 {
-                    this.Program.authorizedPersonsDetector()[i].Letter.Add("Dear " + Program.authorizedPersonsDetector()[i].Name + " " + Program.authorizedPersonsDetector()[i].Family + ":" + "Welcome to Hagwartz");
+                    this.List.AuthorizedPersonsList[i].Letter.Add("Dear " + this.List.AuthorizedPersonsList[i].Name + " " + this.List.AuthorizedPersonsList[i].Family + ":" + "Welcome to Hagwartz");
                 }
             }
         }
 
         void sendTicket(train _train)
         {
-            this.Program.authorizedPersonsDetector();
-            for (int i = 0; i < this.Program.authorizedPersonsDetector().Length; i++)
+            for (int i = 0; i < this.List.AuthorizedPersonsList.Count; i++)
             {
-                if (this.Program.authorizedPersonsDetector()[i].Role == role.student)
+                if (this.List.AuthorizedPersonsList[i].Role == role.student)
                 {
-                    this.Program.authorizedPersonsDetector()[i].Letter.Add("train name:"+_train.Name+"      "+"departure time:"+_train.DepartureTime+"           "+"cabin number"+_train.CabinNumber+"          "+"chair number:"+_train.ChairNumber);
+                    this.List.AuthorizedPersonsList[i].Letter.Add("train name:"+_train.Name+"      "+"departure time:"+_train.DepartureTime+"           "+"cabin number"+_train.CabinNumber+"          "+"chair number:"+_train.ChairNumber);
                 }
 
             }
