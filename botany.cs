@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Hagwartz
 {
@@ -34,6 +35,32 @@ namespace Hagwartz
         {
             get => semester4Plants;
             set => semester4Plants = value;
+        }
+
+        public botany(int semester)
+        {
+            base.Name = "Botany";
+            base.Capacity = 150;
+            base.NumberOfStudents = 130;
+            base.PresentationSemester = semester;
+            if (semester==1)
+            {
+                base.Time = new DateTime(2023, 5, 10, 8, 0, 0);
+
+            }
+            else if (semester==2)
+            {
+                base.Time = new DateTime(2023, 9, 10, 8, 0, 0);
+            }
+            else if (semester==3)
+            {
+                base.Time = new DateTime(2024, 1, 10, 8, 0, 0);
+            }
+            else
+            {
+                base.Time = new DateTime(2024, 5, 10, 8, 0, 0);
+            }
+
         }
     }
 }
