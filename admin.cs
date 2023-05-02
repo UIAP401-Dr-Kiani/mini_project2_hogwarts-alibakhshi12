@@ -21,6 +21,14 @@ namespace Hagwartz
             set => list = value;
         }
 
+        private listOfLessons lessons = new listOfLessons();
+
+        public listOfLessons Lessons
+        {
+            get => lessons;
+            set => lessons = value;
+        }
+
         string login(string username, string password)
         {
             if (username == "AliBakhshi" && password == "1382")
@@ -54,6 +62,18 @@ namespace Hagwartz
                 }
 
             }
+        }
+
+        void addLesson(DateTime _dateTime, long _numberOfStudents, long _capacity, long _presentationSemester,
+            string _name)
+        {
+            lesson lesson = new lesson();
+            lesson.Name = _name;
+            lesson.Capacity = _capacity;
+            lesson.NumberOfStudents = _numberOfStudents;
+            lesson.PresentationSemester = _presentationSemester;
+            lesson.Time = _dateTime;
+            this.Lessons.Lessons.Add(lesson);
         }
 
         

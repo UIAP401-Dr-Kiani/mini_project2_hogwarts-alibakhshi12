@@ -11,7 +11,7 @@ namespace Hagwartz
   {
     public static void Main(string[] args)
     {
-
+      
     }
     public static List<authorizedPersons> authorizedPersonsDetector()
     {

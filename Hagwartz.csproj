@@ -50,6 +50,7 @@
         <Compile Include="botany.cs" />
         <Compile Include="breedType.cs" />
         <Compile Include="chemistry.cs" />
+        <Compile Include="curriculum.cs" />
         <Compile Include="dorm.cs" />
         <Compile Include="Gender.cs" />
         <Compile Include="group.cs" />

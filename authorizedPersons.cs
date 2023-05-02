@@ -12,9 +12,9 @@ namespace Hagwartz
             set => roomNumber = value;
         }
 
-        private List<string> curriculum = new List<string>();
+        private List<curriculum> curriculum = new List<curriculum>();
 
-        public List<string> Curriculum
+        public List<curriculum> Curriculum
         {
             get => curriculum;
             set => curriculum = value;
