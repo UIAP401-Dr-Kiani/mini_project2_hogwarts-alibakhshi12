@@ -24,7 +24,7 @@ namespace Hagwartz
         {
             for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
                 {
                     return "login successfuly";
                     break;
@@ -46,6 +46,34 @@ namespace Hagwartz
             }
 
             return null;
+        }
+
+        void chooseCourses(List<curriculum>Curriculum,string username,string password,bool simaltaneousTeaching)
+        {
+            Curriculum = new List<curriculum>();
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
+                    password == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
+                {
+                    if (simaltaneousTeaching == true)
+                    {
+                        this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
+                        Console.WriteLine("Choosed Succesfully");
+                    }
+                    else
+                    {
+                        for (int j = 1; j < Curriculum.Count; j++)
+                        {
+                            if (Curriculum[j].time ==Curriculum[j-1].time )
+                            {
+                                Curriculum.RemoveAt(j);
+                                this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
+                            }
+                        }
+                    }
+                }
+            }
         }
         
     }

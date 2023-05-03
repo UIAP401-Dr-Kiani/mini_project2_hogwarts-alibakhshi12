@@ -58,7 +58,9 @@ namespace Hagwartz
             {
                 if (this.List.AuthorizedPersonsList[i].Role == role.student)
                 {
+                    this.List.AuthorizedPersonsList[i].Tickets.Add(_train);
                     this.List.AuthorizedPersonsList[i].Letter.Add("train name:"+_train.Name+"      "+"departure time:"+_train.DepartureTime+"           "+"cabin number"+_train.CabinNumber+"          "+"chair number:"+_train.ChairNumber);
+                    Console.WriteLine("sended successfully");
                 }
 
             }
@@ -74,6 +76,15 @@ namespace Hagwartz
             lesson.PresentationSemester = _presentationSemester;
             lesson.Time = _dateTime;
             this.Lessons.Lessons.Add(lesson);
+            Console.WriteLine("Added sucessfully");
+        }
+
+        void showLesson()
+        {
+            for (int i = 0; i < this.Lessons.Lessons.Count; i++)
+            {
+                Console.WriteLine(this.Lessons.Lessons[i]);
+            }
         }
 
         

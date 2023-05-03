@@ -41,7 +41,7 @@ namespace Hagwartz
         {
             base.Name = "Botany";
             base.Capacity = 150;
-            base.NumberOfStudents = 130;
+            base.NumberOfStudents = 0;
             base.PresentationSemester = semester;
             if (semester==1)
             {

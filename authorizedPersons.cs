@@ -59,5 +59,12 @@ namespace Hagwartz
             get => letter;
             set => letter = value;
         }
+        private List<train> tickets = new List<train>();
+
+        public List<train> Tickets
+        {
+            get => tickets;
+            set => tickets = value;
+        }
     }
 }

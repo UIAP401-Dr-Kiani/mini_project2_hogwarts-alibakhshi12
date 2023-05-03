@@ -10,7 +10,7 @@ namespace Hagwartz
         {
             base.Name = "Chemistry";
             base.Capacity = 120;
-            base.NumberOfStudents = 100;
+            base.NumberOfStudents = 0;
             base.PresentationSemester = 1;
             base.Time = new DateTime(2023, 5, 10, 8, 0, 0);
         }
