@@ -175,5 +175,55 @@ namespace Hagwartz
                 }
             }
         }
+
+        void chooseCourses(string _name, string _family, string _username, string _password,List<lesson>Curriculum)
+        {
+            Curriculum = new List<lesson>();
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    if (Curriculum.Count>5&&Curriculum.Count<4)
+                    {
+                      Console.WriteLine("The number of courses selected has exceeded the limit"); 
+                      break;
+                    }
+                    
+                    for (int j = 1; j < Curriculum.Count+1; j++)
+                    {
+                        if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Chart.Contains(Curriculum[j - 1]))
+                        {
+
+                            if (Curriculum[j - 1].NumberOfStudents >= Curriculum[j - 1].Capacity)
+                            {
+                                Curriculum.RemoveAt(j - 1);
+                            }
+
+                            if (Curriculum[j].Time == Curriculum[j - 1].Time)
+                            {
+                                Curriculum.RemoveAt(j);
+                            }
+                            this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
+
+                        }
+                    }
+                    Console.WriteLine("Choosed successfully");
+                }
+            }
+        }
+
+        void showChart(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Chart.Count; j++)
+                    {
+                        Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Chart[j]);
+                    }
+                }
+            }
+        }
     }
 }

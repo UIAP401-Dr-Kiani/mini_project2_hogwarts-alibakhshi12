@@ -12,9 +12,9 @@ namespace Hagwartz
             set => roomNumber = value;
         }
 
-        private List<curriculum> curriculum = new List<curriculum>();
+        private List<lesson> curriculum = new List<lesson>();
 
-        public List<curriculum> Curriculum
+        public List<lesson> Curriculum
         {
             get => curriculum;
             set => curriculum = value;
@@ -65,6 +65,16 @@ namespace Hagwartz
         {
             get => tickets;
             set => tickets = value;
+        }
+
+        private listOfLessons ListOfLessons = new listOfLessons();
+
+        private List<lesson> chart = new List<lesson>();
+
+        public List<lesson> Chart
+        {
+            get => chart;
+            set => chart =ListOfLessons.Lessons;
         }
     }
 }

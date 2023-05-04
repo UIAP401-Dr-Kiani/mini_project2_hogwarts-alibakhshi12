@@ -39,5 +39,13 @@ namespace Hagwartz
             get => name;
             set => name = value;
         }
+
+        private long grade;
+
+        public long Grade
+        {
+            get => grade;
+            set => grade = value;
+        }
     }
 }

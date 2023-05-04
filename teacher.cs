@@ -48,9 +48,9 @@ namespace Hagwartz
             return null;
         }
 
-        void chooseCourses(List<curriculum>Curriculum,string username,string password,bool simaltaneousTeaching)
+        void chooseCourses(List<lesson>Curriculum,string username,string password,bool simaltaneousTeaching)
         {
-            Curriculum = new List<curriculum>();
+            Curriculum = new List<lesson>();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
                 if (username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
@@ -63,18 +63,47 @@ namespace Hagwartz
                     }
                     else
                     {
-                        for (int j = 1; j < Curriculum.Count; j++)
+                        for (int j = 1; j < Curriculum.Count+1; j++)
                         {
-                            if (Curriculum[j].time ==Curriculum[j-1].time )
+                            if (Curriculum[j].Time ==Curriculum[j-1].Time )
                             {
                                 Curriculum.RemoveAt(j);
-                                this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
-                                Console.WriteLine("Choosed Succesfully");
+                            }
+                        }
+                        this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
+                        Console.WriteLine("Choosed Succesfully");
+                    }
+                }
+            }
+        }
+
+        void assignGrade(long _grade,string _teacherUsername, string _teacherPassword, string _studentUsername,
+            string _studentPassword)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_teacherUsername==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_teacherPassword==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
+                {
+                    for (int j = 0; j < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; j++)
+                    {
+                        if (_studentUsername==ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Username&&_studentPassword==ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Role==role.student)
+                        {
+                            for (int k = 0; k < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Count; k++)
+                            {
+                                if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]))
+                                {
+                                      this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k].Grade = _grade;
+                                      if (_grade>=10)
+                                      {
+                                          this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Chart.Remove(ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]);
+                                      }
+                                }
                             }
                         }
                     }
                 }
             }
+            Console.WriteLine("Graded successfully");
         }
         
     }
