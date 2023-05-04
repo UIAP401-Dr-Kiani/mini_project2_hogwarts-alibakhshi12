@@ -49,10 +49,26 @@
             get => code;
             set => code = value;
         }
-        
+
+        private availableCode AvailableCode = new availableCode();
+
+        public availableCode AvailableCode1
+        {
+            get => AvailableCode;
+            set => AvailableCode = value;
+        }
+
         public dorm()
         {
             Code = 101;
+            while (Code%1000<700)
+            {
+                if (Code%10<6)
+                {
+                    this.AvailableCode1.AvailableCodeList.Add(Code);
+                    Code++;
+                }
+            }
         }
     }
 }

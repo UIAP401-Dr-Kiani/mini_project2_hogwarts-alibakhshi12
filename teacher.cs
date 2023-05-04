@@ -69,6 +69,7 @@ namespace Hagwartz
                             {
                                 Curriculum.RemoveAt(j);
                                 this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.AddRange(Curriculum);
+                                Console.WriteLine("Choosed Succesfully");
                             }
                         }
                     }

@@ -47,6 +47,7 @@
     <ItemGroup>
         <Compile Include="admin.cs" />
         <Compile Include="authorizedPersons.cs" />
+        <Compile Include="availableCode.cs" />
         <Compile Include="botany.cs" />
         <Compile Include="breedType.cs" />
         <Compile Include="chemistry.cs" />

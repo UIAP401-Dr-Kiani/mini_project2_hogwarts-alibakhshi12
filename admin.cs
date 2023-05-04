@@ -50,6 +50,7 @@ namespace Hagwartz
                     this.List.AuthorizedPersonsList[i].Letter.Add("Dear " + this.List.AuthorizedPersonsList[i].Name + " " + this.List.AuthorizedPersonsList[i].Family + ":" + "Welcome to Hagwartz");
                 }
             }
+            Console.WriteLine("Sended succesfully");
         }
 
         void sendTicket(train _train)
@@ -60,10 +61,10 @@ namespace Hagwartz
                 {
                     this.List.AuthorizedPersonsList[i].Tickets.Add(_train);
                     this.List.AuthorizedPersonsList[i].Letter.Add("train name:"+_train.Name+"      "+"departure time:"+_train.DepartureTime+"           "+"cabin number"+_train.CabinNumber+"          "+"chair number:"+_train.ChairNumber);
-                    Console.WriteLine("sended successfully");
                 }
 
             }
+            Console.WriteLine("sended successfully");
         }
 
         void addLesson(DateTime _dateTime, long _numberOfStudents, long _capacity, long _presentationSemester,
@@ -85,6 +86,26 @@ namespace Hagwartz
             {
                 Console.WriteLine(this.Lessons.Lessons[i]);
             }
+        }
+
+        void showRequest()
+        {
+            for (int i = 0; i < base.Letter.Count; i++)
+            {
+                Console.WriteLine(base.Letter[i]);
+            }
+        }
+
+        void sendAcceptedMessage()
+        {
+            for (int i = 0; i < List.AuthorizedPersonsList.Count; i++)
+            {
+                if (List.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    List.AuthorizedPersonsList[i].Letter.Add("Hi "+List.AuthorizedPersonsList[i].Name+" "+List.AuthorizedPersonsList[i].Family+". I accepted your request.");
+                }
+            }
+            Console.WriteLine("Sended successfully");
         }
 
         

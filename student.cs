@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Random;
 namespace Hagwartz
 {
     public class student:authorizedPersons
@@ -34,6 +35,21 @@ namespace Hagwartz
         {
             get => ListOfAuthorizedPersons;
             set => ListOfAuthorizedPersons = value;
+        }
+        admin admin = new admin();
+
+        public admin Admin
+        {
+            get => admin;
+            set => admin = value;
+        }
+
+        private availableCode AvailableCode = new availableCode();
+
+        public availableCode AvailableCode1
+        {
+            get => AvailableCode;
+            set => AvailableCode = value;
         }
 
         string login(string _name, string _family, string _username, string _password)
@@ -104,6 +120,60 @@ namespace Hagwartz
                 }
             }
         }
-        
+
+        void sendReturnRequest(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    this.Admin.Letter.Add("Hi Dumbledore, I'm "+ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name+" "+ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family+". I want to go my city");
+                    Console.WriteLine("Sended successfully");
+                }
+            }
+        }
+
+        void showDumbledoreAnswer(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    Console.WriteLine(ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Letter[2]);
+                }
+            }
+        }
+
+        void randomGroup(string _name,string _family,string _username,string _password)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&& _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    this.ListOfAuthorizedPersons.AuthorizedPersonsList[i].Group.Type = (Type) new Random().Next();
+                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Group.Score = new Random().Next();
+                    Console.WriteLine("Successfully attributed");
+                }
+            }
+        }
+
+        void randomCode(string _name,string _family,string _username,string _password)
+        {
+            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name &&
+                    _family == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family &&
+                    _username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
+                    _password == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password &&
+                    ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role == role.student)
+                {
+                    int random = new Random().Next(0, 300);
+                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].RoomNumber =
+                        AvailableCode1.AvailableCodeList[random];
+                    this.AvailableCode1.AvailableCodeList.RemoveAt(random);
+                    Console.WriteLine("Successfully attributed");
+                }
+            }
+        }
     }
 }
