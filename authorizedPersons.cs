@@ -76,5 +76,45 @@ namespace Hagwartz
             get => chart;
             set => chart =ListOfLessons.Lessons;
         }
+
+        private List<plant> lsitOfProjectPlants = new List<plant>();
+
+        public List<plant> LsitOfProjectPlants
+        {
+            get => lsitOfProjectPlants;
+            set => lsitOfProjectPlants = value;
+        }
+
+        private List<DateTime> deadline = new List<DateTime>();
+
+        public List<DateTime> Deadline
+        {
+            get => deadline;
+            set => deadline = value;
+        }
+
+        private List<int> gradeOfBotanicalProject = new List<int>();
+
+        public List<int> GradeOfBotanicalProject
+        {
+            get => gradeOfBotanicalProject;
+            set => gradeOfBotanicalProject = value;
+        }
+
+        private List<color> listOfProjectColors = new List<color>();
+
+        public List<color> ListOfProjectColors
+        {
+            get => listOfProjectColors;
+            set => listOfProjectColors = value;
+        }
+
+        private List<int> gradeOfChemicalProject = new List<int>();
+
+        public List<int> GradeOfChemicalProject
+        {
+            get => gradeOfChemicalProject;
+            set => gradeOfChemicalProject = value;
+        }
     }
 }

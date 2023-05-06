@@ -14,6 +14,6 @@ public class listOfAuthorizedPersons
 
     public listOfAuthorizedPersons()
     {
-        AuthorizedPersonsList = Program.authorizedPersonsDetector();
+        this.AuthorizedPersonsList = Program.authorizedPersonsDetector();
     }
 }

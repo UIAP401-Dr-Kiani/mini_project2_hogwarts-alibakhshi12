@@ -21,7 +21,7 @@ public class listOfLessons
 
     public listOfLessons()
     {
-        Lessons.Add(Chemistry);
+        this.Lessons.Add(Chemistry);
         this.Lessons.Add(Botany1);
         this.Lessons.Add(Botany2);
         this.Lessons.Add(Botany3);

@@ -66,8 +66,9 @@
                 if (Code%10<6)
                 {
                     this.AvailableCode1.AvailableCodeList.Add(Code);
-                    Code++;
                 }
+
+                Code++;
             }
         }
     }

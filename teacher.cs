@@ -20,11 +20,19 @@ namespace Hagwartz
             set => ListOfAuthorizedPersons = value;
         }
 
+        private listOfLessons ListOfLessons = new listOfLessons();
+
+        public listOfLessons ListOfLessons1
+        {
+            get => ListOfLessons;
+            set => ListOfLessons = value;
+        }
+
         string login(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
                 {
                     return "login successfuly";
                     break;
@@ -32,7 +40,7 @@ namespace Hagwartz
                 }
                 else
                 {
-                    if (i == ListOfAuthorizedPersons1.AuthorizedPersonsList.Count - 1)
+                    if (i == this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count - 1)
                     {
                         return "Not found";
                         break;
@@ -53,8 +61,8 @@ namespace Hagwartz
             Curriculum = new List<lesson>();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
-                    password == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
+                if (username == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
+                    password == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
                 {
                     if (simaltaneousTeaching == true)
                     {
@@ -80,22 +88,22 @@ namespace Hagwartz
         void assignGrade(long _grade,string _teacherUsername, string _teacherPassword, string _studentUsername,
             string _studentPassword)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i <this. ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_teacherUsername==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_teacherPassword==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
+                if (_teacherUsername==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_teacherPassword==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
                 {
-                    for (int j = 0; j < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; j++)
+                    for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; j++)
                     {
-                        if (_studentUsername==ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Username&&_studentPassword==ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Role==role.student)
+                        if (_studentUsername==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Username&&_studentPassword==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Role==role.student)
                         {
                             for (int k = 0; k < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Count; k++)
                             {
-                                if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]))
+                                if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]))
                                 {
                                       this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k].Grade = _grade;
                                       if (_grade>=10)
                                       {
-                                          this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Chart.Remove(ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]);
+                                          this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Chart.Remove(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum[k]);
                                       }
                                 }
                             }
@@ -104,6 +112,70 @@ namespace Hagwartz
                 }
             }
             Console.WriteLine("Graded successfully");
+        }
+
+        void creatBotanicalProject(string _name, string _family, string _username, string _password, List<plant> projectPlants,DateTime _deadline)
+        {
+            projectPlants = new List<plant>();
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
+                {
+                    if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[1])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[2])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[3])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[4]))
+                    {
+                        for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; j++)
+                        {
+                            if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Role==role.student)
+                            {
+                                if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Contains(ListOfLessons1.Lessons[1])||ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Contains(ListOfLessons1.Lessons[2])||ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Contains(ListOfLessons1.Lessons[3])||ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Contains(ListOfLessons1.Lessons[4]))
+                                {
+                                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].LsitOfProjectPlants.AddRange(projectPlants);
+                                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Deadline.Add(_deadline);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Created successfully");
+        }
+
+        void confirmAnswer(int _grade, string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                   this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].GradeOfBotanicalProject.Add(_grade);
+                    Console.WriteLine("Confirmed successfully");
+                }
+            }
+        }
+
+        void createChemicalProject(string _name, string _family, string _username, string _password, List<color> colors,DateTime _deadline)
+        {
+            colors = new List<color>();
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.teacher)
+                {
+                    if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[0]))
+                    {
+                        for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; j++)
+                        {
+                            if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Role==role.student)
+                            {
+                                if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Curriculum.Contains(ListOfLessons1.Lessons[0]))
+                                {
+                                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].ListOfProjectColors.AddRange(colors);
+                                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[j].Deadline.Add(_deadline);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Created successfully");
         }
         
     }

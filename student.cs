@@ -52,21 +52,29 @@ namespace Hagwartz
             set => AvailableCode = value;
         }
 
+        private listOfLessons ListOfLessons = new listOfLessons();
+
+        public listOfLessons ListOfLessons1
+        {
+            get => ListOfLessons;
+            set => ListOfLessons = value;
+        }
+
         string login(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name &&
-                    _family == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family &&
-                    _username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
-                    _password == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password &&
-                    ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role == role.student)
+                if (_name == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name &&
+                    _family == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family &&
+                    _username == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
+                    _password == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password &&
+                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role == role.student)
                 {
                     return "login successfully";
                 }
                 else
                 {
-                    if (i==ListOfAuthorizedPersons1.AuthorizedPersonsList.Count-1)
+                    if (i==this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count-1)
                     {
                         return "Not found";
                         break;
@@ -81,42 +89,44 @@ namespace Hagwartz
             return null;
         }
 
-        void checkTime(string _name, string _family, string _username, string _password)
+        string checkTime(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password && this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
-                    if (ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Tickets[0].DepartureTime.CompareTo(DateTime.Now)==-1)
+                    if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Tickets[0].DepartureTime.CompareTo(DateTime.Now)==-1)
                     {
-                        Console.WriteLine("Congratulations,you have reached the train");
+                        return ("Congratulations,you have reached the train");
                     }
                     else
                     {
-                        Console.WriteLine("Unfortunately,you did not catch the train");
+                        return ("Unfortunately,you did not catch the train");
                     }
                 }
             }
+
+            return null;
         }
 
         void showInvitation(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
-                    Console.WriteLine(ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Letter[0]);
+                    Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Letter[0]);
                 }
             }
         }
 
         void showTicket(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name && _family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family && _username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username && _password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
-                    Console.WriteLine(ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Letter[1]);
+                    Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Letter[1]);
                 }
             }
         }
@@ -146,9 +156,9 @@ namespace Hagwartz
 
         void randomGroup(string _name,string _family,string _username,string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&& _family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&& _family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
                     this.ListOfAuthorizedPersons.AuthorizedPersonsList[i].Group.Type = (Type) new Random().Next();
                     this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Group.Score = new Random().Next();
@@ -159,13 +169,13 @@ namespace Hagwartz
 
         void randomCode(string _name,string _family,string _username,string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name &&
-                    _family == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family &&
-                    _username == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
-                    _password == ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password &&
-                    ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role == role.student)
+                if (_name == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name &&
+                    _family == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family &&
+                    _username == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username &&
+                    _password == this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password &&
+                    this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role == role.student)
                 {
                     int random = new Random().Next(0, 300);
                     this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].RoomNumber =
@@ -179,9 +189,9 @@ namespace Hagwartz
         void chooseCourses(string _name, string _family, string _username, string _password,List<lesson>Curriculum)
         {
             Curriculum = new List<lesson>();
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
                     if (Curriculum.Count>5&&Curriculum.Count<4)
                     {
@@ -214,9 +224,9 @@ namespace Hagwartz
 
         void showChart(string _name, string _family, string _username, string _password)
         {
-            for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
-                if (_name==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
                 {
                     for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Chart.Count; j++)
                     {
@@ -225,5 +235,65 @@ namespace Hagwartz
                 }
             }
         }
+
+        void answerBotanicalProject(string _name,string _family,string _username,string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[1])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[2])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[3])||ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[4]))
+                    {
+                        if (DateTime.Now.CompareTo(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Deadline[0]) == -1)
+                        {
+                            Console.WriteLine("Your answer is sended");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry! it was too late to send your answer");
+                        }
+                    }
+                }
+            }
+        }
+
+        void showBotanicalProjectGrade(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].GradeOfBotanicalProject.Count; j++)
+                    {
+                        Console.Write("your grade");
+                        Console.Write(j+1);
+                        Console.Write(":");
+                        Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].GradeOfBotanicalProject[j]);
+                    }
+                }
+            }
+        }
+
+        void answerChemicalProject(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    if (this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Contains(ListOfLessons1.Lessons[0]))
+                    {
+                        if (DateTime.Now.CompareTo(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Deadline[1])==-1)
+                        {
+                            Console.WriteLine("Your answer is sended");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry! it was too late to send your answer");
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

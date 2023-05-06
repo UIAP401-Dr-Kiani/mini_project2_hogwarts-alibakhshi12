@@ -102,7 +102,7 @@ namespace Hagwartz
             {
                 if (List.AuthorizedPersonsList[i].Role==role.student)
                 {
-                    List.AuthorizedPersonsList[i].Letter.Add("Hi "+List.AuthorizedPersonsList[i].Name+" "+List.AuthorizedPersonsList[i].Family+". I accepted your request.");
+                    this.List.AuthorizedPersonsList[i].Letter.Add("Hi "+List.AuthorizedPersonsList[i].Name+" "+List.AuthorizedPersonsList[i].Family+". I accepted your request.");
                 }
             }
             Console.WriteLine("Sended successfully");
