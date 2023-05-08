@@ -116,5 +116,21 @@ namespace Hagwartz
             get => gradeOfChemicalProject;
             set => gradeOfChemicalProject = value;
         }
+
+        private List<char> chemicalOperations = new List<char>();
+
+        public List<char> ChemicalOperations
+        {
+            get => chemicalOperations;
+            set => chemicalOperations = value;
+        }
+
+        private List<color> answerOfChemicalProject = new List<color>();
+
+        public List<color> AnswerOfChemicalProject
+        {
+            get => answerOfChemicalProject;
+            set => answerOfChemicalProject = value;
+        }
     }
 }

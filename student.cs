@@ -274,8 +274,9 @@ namespace Hagwartz
             }
         }
 
-        void answerChemicalProject(string _name, string _family, string _username, string _password)
+        void answerChemicalProject(string _name, string _family, string _username, string _password,color _answer)
         {
+            _answer = new color();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
                 if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
@@ -284,12 +285,47 @@ namespace Hagwartz
                     {
                         if (DateTime.Now.CompareTo(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Deadline[1])==-1)
                         {
+                            this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].AnswerOfChemicalProject.Add(_answer);
                             Console.WriteLine("Your answer is sended");
                         }
                         else
                         {
                             Console.WriteLine("Sorry! it was too late to send your answer");
                         }
+                    }
+                }
+            }
+        }
+
+        void showChemicalProjectGrade(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].GradeOfChemicalProject.Count; j++)
+                    {
+                        Console.Write("your grade");
+                        Console.Write(j+1);
+                        Console.Write(":");
+                        Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].GradeOfChemicalProject[j]);
+                    }
+                }
+            }
+        }
+
+        void showOverallPortfolio(string _name, string _family, string _username, string _password)
+        {
+            for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
+            {
+                if (_name==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Name&&_family==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Family&&_username==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Username&&_password==this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Password&&this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Role==role.student)
+                {
+                    for (int j = 0; j < this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum.Count; j++)
+                    {
+                        Console.Write(j+1);
+                        Console.Write(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum[j].Name);
+                        Console.Write(":");
+                        Console.WriteLine(this.ListOfAuthorizedPersons1.AuthorizedPersonsList[i].Curriculum[j].Grade);
                     }
                 }
             }

@@ -61,6 +61,7 @@
         <Compile Include="listOfColors.cs" />
         <Compile Include="listOfLessons.cs" />
         <Compile Include="magic.cs" />
+        <Compile Include="main.cs" />
         <Compile Include="person.cs" />
         <Compile Include="pet.cs" />
         <Compile Include="plant.cs" />

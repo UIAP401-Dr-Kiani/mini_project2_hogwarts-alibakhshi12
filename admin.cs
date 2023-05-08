@@ -29,7 +29,7 @@ namespace Hagwartz
             set => lessons = value;
         }
 
-        string login(string username, string password)
+        public string login(string username, string password)
         {
             if (username == "AliBakhshi" && password == "1382")
             {
@@ -41,7 +41,7 @@ namespace Hagwartz
             }
         }
 
-        void sendInvitation()
+        public void sendInvitation()
         {
             for (int i = 0; i < this.List.AuthorizedPersonsList.Count; i++)
             {
@@ -53,7 +53,7 @@ namespace Hagwartz
             Console.WriteLine("Sended succesfully");
         }
 
-        void sendTicket(train _train)
+        public void sendTicket(train _train)
         {
             for (int i = 0; i < this.List.AuthorizedPersonsList.Count; i++)
             {
@@ -67,7 +67,7 @@ namespace Hagwartz
             Console.WriteLine("sended successfully");
         }
 
-        void addLesson(DateTime _dateTime, long _numberOfStudents, long _capacity, long _presentationSemester,
+        public void addLesson(DateTime _dateTime, long _numberOfStudents, long _capacity, long _presentationSemester,
             string _name)
         {
             lesson lesson = new lesson();
@@ -80,7 +80,7 @@ namespace Hagwartz
             Console.WriteLine("Added sucessfully");
         }
 
-        void showLesson()
+        public void showLesson()
         {
             for (int i = 0; i < this.Lessons.Lessons.Count; i++)
             {
