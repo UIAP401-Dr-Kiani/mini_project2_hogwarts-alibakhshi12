@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 
 namespace Hagwartz;
@@ -42,6 +43,7 @@ public class main
                             Console.Write("Enter your password:");
                             string password = Console.ReadLine();
                             string message = admin1.login(username, password);
+                            Console.WriteLine(message);
                             if (message=="Not found")
                             {
                                 continue;
@@ -101,6 +103,208 @@ public class main
                                 else if (request2==4)
                                 {
                                     admin1.showLesson();
+                                }
+                                else if (request2==5)
+                                {
+                                    admin1.showRequest();
+                                }
+                                else
+                                {
+                                    admin1.sendAcceptedMessage();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (request0==2)
+            {
+                while (true)
+                {
+                    Console.WriteLine("1-login");
+                    Console.WriteLine("2-exit");
+                    int request1 = Convert.ToInt32(Console.ReadLine());
+                    if (request1==2)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        while (true)
+                        {
+                            Console.Write("Enter your name:");
+                            string name = Console.ReadLine();
+                            Console.Write("Enter your family:");
+                            string family = Console.ReadLine();
+                            Console.Write("Enter your username:");
+                            string username = Console.ReadLine();
+                            Console.Write("Enter your password");
+                            string password = Console.ReadLine();
+                            string message = teacher1.login(name, family, username, password);
+                            Console.WriteLine(message);
+                            if (message=="Not found")
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                Console.WriteLine("1-Choose courses");
+                                Console.WriteLine("2-Assign grade");
+                                Console.WriteLine("3-Create botanical project");
+                                Console.WriteLine("4-Confirm answer of botanical project");
+                                Console.WriteLine("5-Creat chemical project");
+                                Console.WriteLine("6-Confirm answer of chemical project");
+                                Console.WriteLine("7-exit");
+                                int request2 = Convert.ToInt32(Console.ReadLine());
+                                if (request2==7)
+                                {
+                                    break;
+                                }
+                                else if (request2==1)
+                                {
+                                    Console.Write("Enter number of lessons you have choosed:");
+                                    int sizeOfCurriculum = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Enter simultaneous teaching status:");
+                                    bool simultaneousTeaching = Convert.ToBoolean(Console.ReadLine());
+                                    List<lesson> curriculum = new List<lesson>();
+                                    for (int i = 0; i < sizeOfCurriculum; i++)
+                                    {
+                                        Console.Write("Enter name of lesson:");
+                                        curriculum[i].Name = Console.ReadLine();
+                                        Console.Write("Enter time of lesson:");
+                                        curriculum[i].Time = Convert.ToDateTime(Console.ReadLine());
+                                        Console.Write("Enter capacity of lesson:");
+                                        curriculum[i].Capacity = Convert.ToInt64(Console.ReadLine());
+                                        Console.Write("Enter presentation semester of lesson:");
+                                        curriculum[i].PresentationSemester = Convert.ToInt64(Console.ReadLine());
+                                        Console.Write("Enter number of students of lesson:");
+                                        curriculum[i].NumberOfStudents = Convert.ToInt64(Console.ReadLine());
+                                    }
+
+                                    teacher1.chooseCourses(curriculum, username, password, simultaneousTeaching);
+                                }
+                                else if (request2==2)
+                                {
+                                    Console.Write("Enter grade of lesson:");
+                                    long grade = Convert.ToInt64(Console.ReadLine());
+                                    Console.Write("Enter username of student:");
+                                    string studentUsername = Console.ReadLine();
+                                    Console.Write("Enter password of student:");
+                                    string studentPassword = Console.ReadLine();
+                                    teacher1.assignGrade(grade, username, password, studentUsername, studentPassword);
+                                }
+                                else if (request2==3)
+                                {
+                                    Console.Write("Enter number of plants of botanical project:");
+                                    int sizeOfPlants = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Enter deadline of this project:");
+                                    DateTime deadline = Convert.ToDateTime(Console.ReadLine());
+                                    List<plant> projectPlants = new List<plant>();
+                                    for (int i = 0; i < sizeOfPlants; i++)
+                                    {
+                                        Console.Write("Enter name of plant:");
+                                        projectPlants[i].Name = Console.ReadLine();
+                                        Console.Write("Enter number of plant:");
+                                        projectPlants[i].Number = Convert.ToInt64(Console.ReadLine());
+                                    }
+
+                                    teacher1.createBotanicalProject(name, family, username, password, projectPlants,
+                                        deadline);
+                                }
+                                else if (request2==4)
+                                {
+                                    Console.Write("Enter grade of botanical project:");
+                                    int grade = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Enter name of student:");
+                                    string studentName = Console.ReadLine();
+                                    Console.Write("Enter family of student:");
+                                    string studentFamily = Console.ReadLine();
+                                    Console.Write("Enter username of student:");
+                                    string studentUsername = Console.ReadLine();
+                                    Console.Write("Enter password of student:");
+                                    string studentPassword = Console.ReadLine();
+                                    teacher1.confirmAnswerOfBotanicalProject(grade, studentName, studentFamily,
+                                        studentUsername, studentPassword);
+                                }
+                                else if (request2==5)
+                                {
+                                    Console.Write("Enter number of colors of chimical project:");
+                                    int sizeOfColors = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Enter deadline of this project:");
+                                    DateTime deadline = Convert.ToDateTime(Console.ReadLine());
+                                    List<color> colors = new List<color>();
+                                    for (int i = 0; i < sizeOfColors; i++)
+                                    {
+                                        Console.Write("Enter name of color:");
+                                        colors[i].Name = Console.ReadLine();
+                                        Console.Write("Enter measure of color:");
+                                        colors[i].Measure = Convert.ToInt64(Console.ReadLine());
+                                    }
+
+                                    teacher1.createChemicalProject(name, family, username, password, colors, deadline);
+                                }
+                                else
+                                {
+                                    Console.Write("Enter name of student:");
+                                    string studentName = Console.ReadLine();
+                                    Console.Write("Enter family of student:");
+                                    string studentFamily = Console.ReadLine();
+                                    Console.Write("Enter username of student:");
+                                    string studentUsername = Console.ReadLine();
+                                    Console.Write("Enter password of student:");
+                                    string studentPassword = Console.ReadLine();
+                                    int grade=0;
+                                    teacher1.confirmAnswerOfChemicalProject(studentName, studentFamily, studentUsername,
+                                        studentPassword, grade);
+                                }
+                            }
+                        } 
+                    }
+                }
+            }
+            else
+            {
+                while (true)
+                {
+                    Console.WriteLine("1-login");
+                    Console.WriteLine("2-exit");
+                    int request1 = Convert.ToInt32(Console.ReadLine());
+                    if (request1==2)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        while (true)
+                        {
+                            Console.Write("Enter your name:");
+                            string name = Console.ReadLine();
+                            Console.Write("Enter your family:");
+                            string family = Console.ReadLine();
+                            Console.Write("Enter your username:");
+                            string username = Console.ReadLine();
+                            Console.Write("Enter your password:");
+                            string password = Console.ReadLine();
+                            string message=student1.login(name, family, username, password);
+                            Console.WriteLine(message);
+                            if (message=="Not found")
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                string checktimeMessage=student1.checkTime(name,family,username,password);
+                                Console.WriteLine(checktimeMessage);
+                                if (checktimeMessage=="Unfortunately,you did not catch the train")
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("1-Show invitation");
+                                    Console.WriteLine("2-Show ticket");
+                                    Console.WriteLine("3-Send return request");
+                                    
                                 }
                             }
                         }

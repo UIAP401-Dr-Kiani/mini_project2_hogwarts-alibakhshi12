@@ -28,7 +28,7 @@ namespace Hagwartz
             set => ListOfLessons = value;
         }
 
-        string login(string _name, string _family, string _username, string _password)
+        public string login(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -56,7 +56,7 @@ namespace Hagwartz
             return null;
         }
 
-        void chooseCourses(List<lesson>Curriculum,string username,string password,bool simaltaneousTeaching)
+        public void chooseCourses(List<lesson>Curriculum,string username,string password,bool simaltaneousTeaching)
         {
             Curriculum = new List<lesson>();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
@@ -85,7 +85,7 @@ namespace Hagwartz
             }
         }
 
-        void assignGrade(long _grade,string _teacherUsername, string _teacherPassword, string _studentUsername,
+        public void assignGrade(long _grade,string _teacherUsername, string _teacherPassword, string _studentUsername,
             string _studentPassword)
         {
             for (int i = 0; i <this. ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
@@ -114,7 +114,7 @@ namespace Hagwartz
             Console.WriteLine("Graded successfully");
         }
 
-        void creatBotanicalProject(string _name, string _family, string _username, string _password, List<plant> projectPlants,DateTime _deadline)
+        public void createBotanicalProject(string _name, string _family, string _username, string _password, List<plant> projectPlants,DateTime _deadline)
         {
             projectPlants = new List<plant>();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
@@ -140,7 +140,7 @@ namespace Hagwartz
             Console.WriteLine("Created successfully");
         }
 
-        void confirmAnswerOfBotanicalProject(int _grade, string _name, string _family, string _username, string _password)
+        public void confirmAnswerOfBotanicalProject(int _grade, string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -152,7 +152,7 @@ namespace Hagwartz
             }
         }
 
-        void createChemicalProject(string _name, string _family, string _username, string _password, List<color> colors,DateTime _deadline)
+        public void createChemicalProject(string _name, string _family, string _username, string _password, List<color> colors,DateTime _deadline)
         {
             colors = new List<color>();
             if (colors.Count<2||colors.Count>4)
@@ -205,7 +205,7 @@ namespace Hagwartz
             Console.WriteLine("Created successfully");
         }
 
-        void confirmAnswerOfChemicalProject(string _name, string _family, string _username, string _password,int _grade)
+        public void confirmAnswerOfChemicalProject(string _name, string _family, string _username, string _password,int _grade)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {

@@ -60,7 +60,7 @@ namespace Hagwartz
             set => ListOfLessons = value;
         }
 
-        string login(string _name, string _family, string _username, string _password)
+        public string login(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -89,7 +89,7 @@ namespace Hagwartz
             return null;
         }
 
-        string checkTime(string _name, string _family, string _username, string _password)
+        public string checkTime(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {

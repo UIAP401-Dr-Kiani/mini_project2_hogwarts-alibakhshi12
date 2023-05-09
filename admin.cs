@@ -88,7 +88,7 @@ namespace Hagwartz
             }
         }
 
-        void showRequest()
+        public void showRequest()
         {
             for (int i = 0; i < base.Letter.Count; i++)
             {
@@ -96,7 +96,7 @@ namespace Hagwartz
             }
         }
 
-        void sendAcceptedMessage()
+        public void sendAcceptedMessage()
         {
             for (int i = 0; i < List.AuthorizedPersonsList.Count; i++)
             {
