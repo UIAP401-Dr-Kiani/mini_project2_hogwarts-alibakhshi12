@@ -301,10 +301,91 @@ public class main
                                 }
                                 else
                                 {
+                                    student1.randomGroup(name, family, username, password);
+                                    student1.randomCode(name, family, username, password);
                                     Console.WriteLine("1-Show invitation");
                                     Console.WriteLine("2-Show ticket");
                                     Console.WriteLine("3-Send return request");
-                                    
+                                    Console.WriteLine("4-Show Dumbeldor answer");
+                                    Console.WriteLine("5-Choose courses");
+                                    Console.WriteLine("6-Show chart");
+                                    Console.WriteLine("7-Answer botanical project");
+                                    Console.WriteLine("8-Show botanical project grade");
+                                    Console.WriteLine("9-Answer chemical project");
+                                    Console.WriteLine("10-Show chemical project grade");
+                                    Console.WriteLine("11-Show overall portfolio");
+                                    Console.WriteLine("12-exit");
+                                    int request2 = Convert.ToInt32(Console.ReadLine());
+                                    if (request2==12)
+                                    {
+                                        break;
+                                    }
+                                    else if (request2==1)
+                                    {
+                                        student1.showInvitation(name, family, username, password);
+                                    }
+                                    else if (request2==2)
+                                    {
+                                        student1.showTicket(name, family, username, password);
+                                    }
+                                    else if (request2==3)
+                                    {
+                                        student1.sendReturnRequest(name, family, username, password);
+                                    }
+                                    else if (request2==4)
+                                    {
+                                        student1.showDumbledoreAnswer(name, family, username, password);
+                                    }
+                                    else if (request2==5)
+                                    {
+                                        Console.Write("Enter number of lessons you have choosed:");
+                                        int sizeOfCurriculum = Convert.ToInt32(Console.ReadLine());
+                                        List<lesson> Curriculum = new List<lesson>();
+                                        for (int i = 0; i < sizeOfCurriculum; i++)
+                                        {
+                                            Console.Write("Enter name of lesson:");
+                                            Curriculum[i].Name = Console.ReadLine();
+                                            Console.Write("Enter time of lesson:");
+                                            Curriculum[i].Time = Convert.ToDateTime(Console.ReadLine());
+                                            Console.Write("Enter capacity of lesson:");
+                                            Curriculum[i].Capacity = Convert.ToInt64(Console.ReadLine());
+                                            Console.Write("Enter presentation semester of lesson:");
+                                            Curriculum[i].PresentationSemester = Convert.ToInt64(Console.ReadLine());
+                                            Console.Write("Enter number of students of lesson:");
+                                            Curriculum[i].NumberOfStudents = Convert.ToInt64(Console.ReadLine());
+                                        }
+
+                                        student1.chooseCourses(name, family, username, password, Curriculum);
+                                    }
+                                    else if (request2==6)
+                                    {
+                                        student1.showChart(name, family, username, password);
+                                    }
+                                    else if (request2==7)
+                                    {
+                                        student1.answerBotanicalProject(name, family, username, password);
+                                    }
+                                    else if (request2==8)
+                                    {
+                                        student1.showBotanicalProjectGrade(name, family, username, password);
+                                    }
+                                    else if (request2==9)
+                                    {
+                                        color answer = new color();
+                                        Console.Write("Enter name of answer's color:");
+                                        answer.Name = Console.ReadLine();
+                                        Console.Write("Enter measure of answer's color:");
+                                        answer.Measure = Convert.ToInt64(Console.ReadLine());
+                                        student1.answerChemicalProject(name, family, username, password, answer);
+                                    }
+                                    else if (request2==10)
+                                    {
+                                        student1.showChemicalProjectGrade(name, family, username, password);
+                                    }
+                                    else if (request2==11)
+                                    {
+                                        student1.showOverallPortfolio(name, family, username, password);
+                                    }
                                 }
                             }
                         }

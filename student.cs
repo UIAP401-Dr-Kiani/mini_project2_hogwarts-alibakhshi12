@@ -109,7 +109,7 @@ namespace Hagwartz
             return null;
         }
 
-        void showInvitation(string _name, string _family, string _username, string _password)
+        public void showInvitation(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -120,7 +120,7 @@ namespace Hagwartz
             }
         }
 
-        void showTicket(string _name, string _family, string _username, string _password)
+        public void showTicket(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -131,7 +131,7 @@ namespace Hagwartz
             }
         }
 
-        void sendReturnRequest(string _name, string _family, string _username, string _password)
+        public void sendReturnRequest(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -143,7 +143,7 @@ namespace Hagwartz
             }
         }
 
-        void showDumbledoreAnswer(string _name, string _family, string _username, string _password)
+        public void showDumbledoreAnswer(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -154,7 +154,7 @@ namespace Hagwartz
             }
         }
 
-        void randomGroup(string _name,string _family,string _username,string _password)
+        public void randomGroup(string _name,string _family,string _username,string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -167,7 +167,7 @@ namespace Hagwartz
             }
         }
 
-        void randomCode(string _name,string _family,string _username,string _password)
+        public void randomCode(string _name,string _family,string _username,string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -186,7 +186,7 @@ namespace Hagwartz
             }
         }
 
-        void chooseCourses(string _name, string _family, string _username, string _password,List<lesson>Curriculum)
+        public void chooseCourses(string _name, string _family, string _username, string _password,List<lesson>Curriculum)
         {
             Curriculum = new List<lesson>();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
@@ -222,7 +222,7 @@ namespace Hagwartz
             }
         }
 
-        void showChart(string _name, string _family, string _username, string _password)
+        public void showChart(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -236,7 +236,7 @@ namespace Hagwartz
             }
         }
 
-        void answerBotanicalProject(string _name,string _family,string _username,string _password)
+        public void answerBotanicalProject(string _name,string _family,string _username,string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -257,7 +257,7 @@ namespace Hagwartz
             }
         }
 
-        void showBotanicalProjectGrade(string _name, string _family, string _username, string _password)
+        public void showBotanicalProjectGrade(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -274,7 +274,7 @@ namespace Hagwartz
             }
         }
 
-        void answerChemicalProject(string _name, string _family, string _username, string _password,color _answer)
+        public void answerChemicalProject(string _name, string _family, string _username, string _password,color _answer)
         {
             _answer = new color();
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
@@ -297,7 +297,7 @@ namespace Hagwartz
             }
         }
 
-        void showChemicalProjectGrade(string _name, string _family, string _username, string _password)
+        public void showChemicalProjectGrade(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
@@ -314,7 +314,7 @@ namespace Hagwartz
             }
         }
 
-        void showOverallPortfolio(string _name, string _family, string _username, string _password)
+        public void showOverallPortfolio(string _name, string _family, string _username, string _password)
         {
             for (int i = 0; i < this.ListOfAuthorizedPersons1.AuthorizedPersonsList.Count; i++)
             {
