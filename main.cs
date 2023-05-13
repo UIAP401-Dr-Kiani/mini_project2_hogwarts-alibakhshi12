@@ -90,9 +90,9 @@ public class main
                                 {
                                     Console.Write("Enter name of lesson:");
                                     string name = Console.ReadLine();
-                                    Console.Write("Enter time of lesson");
+                                    Console.Write("Enter time of lesson:");
                                     DateTime time = Convert.ToDateTime(Console.ReadLine());
-                                    Console.Write("Enter number of students of lesson");
+                                    Console.Write("Enter number of students of lesson:");
                                     long numberOfStudent = Convert.ToInt64(Console.ReadLine());
                                     Console.Write("Enter capacity of lesson:");
                                     long capacity = Convert.ToInt64(Console.ReadLine());
@@ -138,7 +138,7 @@ public class main
                             string family = Console.ReadLine();
                             Console.Write("Enter your username:");
                             string username = Console.ReadLine();
-                            Console.Write("Enter your password");
+                            Console.Write("Enter your password:");
                             string password = Console.ReadLine();
                             string message = teacher1.login(name, family, username, password);
                             Console.WriteLine(message);
